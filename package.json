@@ -1,0 +1,51 @@
+{
+  "name": "ectropy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --no-cache --runInBand",
+    "test:cov": "jest --coverage --no-cache --runInBand"
+  },
+  "author": "Jason Watson <hi@jbw.codes>",
+  "license": "MIT",
+  "homepage": "https://github.com/jbw/ectropy",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jbw/ectropy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jbw/ectropy/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "configuation",
+    "appconfig",
+    "appsettings",
+    "config",
+    "settings",
+    "ectropy"
+  ],
+  "dependencies": {
+    "convict": "^6.2.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.4.7",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.3",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4"
+  }
+}
