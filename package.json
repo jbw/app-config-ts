@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "start": "tsc --build --watch",
     "test": "jest --no-cache --runInBand",
     "test:cov": "jest --coverage --no-cache --runInBand"
   },
