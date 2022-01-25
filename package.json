@@ -49,5 +49,24 @@
     "ts-jest": "^27.1.3",
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testRegex": "\\.spec\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    }
   }
 }

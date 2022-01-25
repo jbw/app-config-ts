@@ -1,6 +1,4 @@
-import { getFileInfo } from 'prettier';
 import { JsonConfigurationBuilder, JsonConfigurationProvider, JsonConfigurationSource } from './json/implementations';
-
 
 
 const jsonConfigSource = new JsonConfigurationProvider(new JsonConfigurationSource());
