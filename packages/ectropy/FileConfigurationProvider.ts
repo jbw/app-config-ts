@@ -5,6 +5,8 @@ export abstract class FileConfigurationProvider extends ConfigurationProvider {
 
   constructor(private readonly source: FileConfigurationSource) {
     super();
+
+    this.load();
   }
 
   abstract loadFile(stream: any): void;

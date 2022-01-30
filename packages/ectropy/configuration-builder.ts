@@ -16,8 +16,10 @@ export class ConfigurationBuilder implements IConfigurationBuilder {
   public build(): IConfigurationRoot {
 
     const providers: IConfigurationProvider[] = [];
+    
     this.sources.forEach(source => {
-      providers.push(source.build(this));
+      const provider: IConfigurationProvider = source.build(this);
+      providers.push(provider);
     });
 
     return new ConfigurationRoot(providers);

@@ -5,7 +5,7 @@ import { IConfigurationSection } from "./IConfigurationSection";
  */
 export interface IConfiguration {
 
-  get(key: string): string;
+  get(key: string): string | null;
 
   getSection(section: string): IConfigurationSection;
 

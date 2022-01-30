@@ -4,15 +4,44 @@ import { IConfigurationProvider } from '../packages/ectropy/abstractions/IConfig
 import { JsonConfigurationProvider } from '../packages/ectropy-json/JsonConfigurationProvider';
 import { IConfigurationRoot } from '../packages/ectropy/abstractions/IConfigurationRoot';
 
-describe("loading a configuration", () => {
+describe("configuration-root", () => {
+  it("should load configuration from json file", () => {
 
-  it("loads a json file", () => {
+    // given
+    const source = new JsonConfigurationSource();
+    source.path = './test/examples/basic/basic-configuration-2.json';
 
     const builder = new ConfigurationBuilder();
-    builder.add(new JsonConfigurationSource());
-    const config = builder.build();
+    builder.add(source);
 
+    const root: IConfigurationRoot = builder.build();
+
+    // when
+    const value = root.get('logging:level')
+
+    // then
+    expect(value).toBe("debug");
   });
+
+  it.only("should get section", () => {
+    // given
+    const source = new JsonConfigurationSource();
+    source.path = './test/examples/basic/basic-configuration-1.json';
+
+    const builder = new ConfigurationBuilder();
+    builder.add(source);
+
+    const root: IConfigurationRoot = builder.build();
+
+    // when
+    const section = root.getSection('logging');
+    console.log(section);
+    const value = section.get('level');
+    expect(value).toEqual("debug");
+  });
+});
+
+describe("provider", () => {
 
   it("grabs value for a nested section", () => {
 
@@ -23,8 +52,6 @@ describe("loading a configuration", () => {
     const builder = new ConfigurationBuilder();
     builder.add(source);
 
-    // const root: IConfigurationRoot = builder.build();
- 
     const provider: IConfigurationProvider = source.build(builder);
     provider.load();
 
