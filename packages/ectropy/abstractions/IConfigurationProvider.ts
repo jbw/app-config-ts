@@ -5,5 +5,9 @@ export interface IConfigurationProvider {
 
   get(key: string): string;
   set(key: string, value: string): void;
+
+  /**
+   * @description Loads the configuration from the source.
+   */
   load(): void;
 }

@@ -1,18 +1,23 @@
-import { FileConfigurationProvider } from './FileConfigurationProvider';
+import { FileConfigurationProvider } from '../ectropy/FileConfigurationProvider';
+import { JsonConfigurationSource } from './JsonConfigurationSource';
+import * as fs from "fs";
 
 
 export class JsonConfigurationProvider extends FileConfigurationProvider {
 
   data: any;
 
-  public get(key: string): string {
-    return this.data[key];
+  constructor(source: JsonConfigurationSource) {
+    super(source);
   }
-
-  public set(key: string, value: string): void {
-  }
-
-  public override loadFile(text: string): void {
-    this.data = JSON.parse(text);
+  
+  /**
+   * @deprecated Use load() instead.
+   * @param text
+   */
+  public override loadFile(path: string): void {
+    const data = fs.readFileSync(path);
+    
+    this.data = JSON.parse(data.toString());
   }
 }

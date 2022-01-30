@@ -1,9 +1,4 @@
 {
-  "connectionstrings": {
-    "mongo": "mongodb://localhost:27017/test",
-    "redis": "redis://localhost:6379",
-    "postgres": "postgres://postgres:postgres@localhost:5432/postgres"
-  },
   "logging": {
     "level": "debug",
     "format": "json"
