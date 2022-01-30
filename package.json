@@ -1,8 +1,8 @@
 {
-  "name": "ectropy",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "tsc --build",
     "clean": "tsc --build --clean",
@@ -19,9 +19,6 @@
   },
   "bugs": {
     "url": "https://github.com/jbw/ectropy/issues"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "files": [
     "dist"

@@ -1,0 +1,22 @@
+{
+  "connectionstrings": {
+    "mongo": "mongodb://localhost:27017/test",
+    "redis": "redis://localhost:6379",
+    "postgres": "postgres://postgres:postgres@localhost:5432/postgres"
+  },
+  "logging": {
+    "level": "debug",
+    "format": "json"
+  },
+  "messaging":{
+    "rabbitmq": {
+      "host": "localhost",
+      "port": 5672,
+      "username": "guest",
+      "password": "guest",
+      "vhost": "/",
+      "exchange": "test-exchange",
+      "queue": "test-queue"
+    }
+  }
+}

@@ -1,4 +1,6 @@
 
+.DS_STORE
+
 # Logs
 logs
 *.log
@@ -26,3 +28,5 @@ node_modules/
 # dotenv environment variables file
 .env
 .env.test
+
+dist
