@@ -1,9 +1,6 @@
-
-import { IConfigurationProvider } from "../ectropy/abstractions/IConfigurationProvider";
+import { IConfigurationProvider } from '../ectropy/abstractions/IConfigurationProvider';
 
 export abstract class ConfigurationProvider implements IConfigurationProvider {
-
-
   public readonly data: any;
 
   constructor() {

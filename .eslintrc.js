@@ -1,11 +1,27 @@
 module.exports = {
+  root: true,
+
   parser: '@typescript-eslint/parser',
-  extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
   parserOptions: {
+    project: 'tsconfig.json',
     sourceType: 'module',
+  
   },
+  env: {
+    node: true,
+    jest: true,
+  },
+  plugins: ['@typescript-eslint'],
+
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'prettier',
+  ],
+
   rules: {
-    'prettier/prettier': 'error',
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/explicit-function-return-type": "error",
   },
-  plugins: ['@typescript-eslint', 'prettier'],
 }

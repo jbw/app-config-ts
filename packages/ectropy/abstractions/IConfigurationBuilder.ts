@@ -6,7 +6,6 @@ import { IConfigurationSource } from './IConfigurationSource';
  */
 
 export interface IConfigurationBuilder {
-
   readonly sources: IConfigurationSource[];
 
   add(configurationSourcec: IConfigurationSource): IConfigurationBuilder;

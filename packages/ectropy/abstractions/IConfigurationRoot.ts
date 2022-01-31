@@ -2,7 +2,6 @@ import { IConfigurationProvider } from './IConfigurationProvider';
 import { IConfigurationSection } from './IConfigurationSection';
 
 export interface IConfigurationRoot {
-
   providers: IConfigurationProvider[];
 
   getSection(section: string): IConfigurationSection;
@@ -10,5 +9,4 @@ export interface IConfigurationRoot {
   get(key: string): string | null;
 
   getChildren(key: string): IConfigurationSection[];
-
 }

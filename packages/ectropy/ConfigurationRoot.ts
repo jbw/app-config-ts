@@ -1,8 +1,7 @@
 import { IConfigurationRoot } from './abstractions/IConfigurationRoot';
-import { IConfigurationProvider } from "./abstractions/IConfigurationProvider";
+import { IConfigurationProvider } from './abstractions/IConfigurationProvider';
 import { IConfigurationSection } from './abstractions/IConfigurationSection';
-import { ConfigurationSection } from "./ConfigurationSection";
-
+import { ConfigurationSection } from './ConfigurationSection';
 
 export class ConfigurationRoot implements IConfigurationRoot {
   public providers: IConfigurationProvider[] = [];
@@ -16,7 +15,6 @@ export class ConfigurationRoot implements IConfigurationRoot {
   }
 
   get(key: string): string | null {
-    
     for (let i = 0; i < this.providers.length; i++) {
       const value = this.providers[i].get(key);
       if (value != null) {

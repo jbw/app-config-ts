@@ -1,13 +1,11 @@
 import { IConfigurationRoot } from './abstractions/IConfigurationRoot';
 import { IConfigurationSection } from './abstractions/IConfigurationSection';
 
-
 export class ConfigurationSection implements IConfigurationSection {
-
   key: string = ConfigurationPath.getSectionKey(this.path);
   value: string | null = this.root.get(this.path);
 
-  constructor(public readonly root: IConfigurationRoot, public readonly path: string) { }
+  constructor(public readonly root: IConfigurationRoot, public readonly path: string) {}
 
   public get(key: string): string | null {
     console.log('ConfigurationSection.get', this.root, this.path, key);
@@ -24,8 +22,7 @@ export class ConfigurationSection implements IConfigurationSection {
   }
 }
 
-export class ConfigurationPath
-{
+export class ConfigurationPath {
   static readonly keyDelimiter: string = '.';
 
   public static combine(path1: string, path2: string): string {
@@ -39,5 +36,4 @@ export class ConfigurationPath
   public static getSectionKey(path: string): string {
     return path.substring(path.lastIndexOf('.') + 1);
   }
-
 }
