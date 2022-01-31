@@ -22,6 +22,23 @@ describe('configuration-root', () => {
     expect(value).toBe('debug')
   })
 
+  it('get values from array', () => {
+    // given
+    const source = new JsonConfigurationSource()
+    source.path = './test/examples/basic/basic-configuration-array.json'
+
+    const builder = new ConfigurationBuilder()
+    builder.add(source)
+
+    const root: IConfigurationRoot = builder.build()
+
+    // when
+    const value = root.get('connections.0.host')
+
+    // then
+    expect(value).toBe('localhost1')
+  })
+
   it('should get section', () => {
     // given
     const source = new JsonConfigurationSource()

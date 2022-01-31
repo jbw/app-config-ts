@@ -1,0 +1,13 @@
+{
+  "connections": [
+    {
+      "host": "localhost1"
+    },
+    {
+      "host": "localhost2"
+    },
+    {
+      "host": "localhost3"
+    }
+  ]
+}
