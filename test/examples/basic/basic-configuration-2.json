@@ -1,3 +1,3 @@
 {
-  "logging:level": "debug"
+  "logging.level": "debug"
 }

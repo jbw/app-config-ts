@@ -16,6 +16,26 @@ export class JsonConfigurationProvider extends FileConfigurationProvider {
   public override loadFile(path: string): void {
     const data = fs.readFileSync(path);
 
-    this.data = JSON.parse(data.toString());
+    const parsed = JSON.parse(data.toString());
+
+    //
+    const result = this.flatten(parsed);
+    this.data = result;
+
+    console.log('final', this.data);
+  }
+
+  private flatten(obj: any, path = ''): any {
+    const result: any = {};
+    Object.keys(obj).forEach((key) => {
+      const value = obj[key];
+      if (typeof value === 'object') {
+        const flattened = this.flatten(value, `${path}${key}.`);
+        Object.assign(result, flattened);
+      } else {
+        result[`${path}${key}`] = value;
+      }
+    });
+    return result;
   }
 }

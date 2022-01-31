@@ -1,5 +1,6 @@
 import { IConfigurationRoot } from './abstractions/IConfigurationRoot';
 import { IConfigurationSection } from './abstractions/IConfigurationSection';
+import { ConfigurationPath } from './ConfigurationPath';
 
 export class ConfigurationSection implements IConfigurationSection {
   key: string = ConfigurationPath.getSectionKey(this.path);
@@ -19,21 +20,5 @@ export class ConfigurationSection implements IConfigurationSection {
 
   public getChildren(key: string): IConfigurationSection[] {
     return this.root.getChildren(this.path);
-  }
-}
-
-export class ConfigurationPath {
-  static readonly keyDelimiter: string = '.';
-
-  public static combine(path1: string, path2: string): string {
-    return path1 + ConfigurationPath.keyDelimiter + path2;
-  }
-
-  public static getParentPath(path: string): string {
-    return path.substring(0, path.lastIndexOf('.'));
-  }
-
-  public static getSectionKey(path: string): string {
-    return path.substring(path.lastIndexOf('.') + 1);
   }
 }

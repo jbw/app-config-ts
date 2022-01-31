@@ -16,13 +16,13 @@ describe('configuration-root', () => {
     const root: IConfigurationRoot = builder.build()
 
     // when
-    const value = root.get('logging:level')
+    const value = root.get('logging.level')
 
     // then
     expect(value).toBe('debug')
   })
 
-  it.only('should get section', () => {
+  it('should get section', () => {
     // given
     const source = new JsonConfigurationSource()
     source.path = './test/examples/basic/basic-configuration-1.json'
@@ -33,12 +33,44 @@ describe('configuration-root', () => {
     const root: IConfigurationRoot = builder.build()
 
     // when
-    const section = root.getSection('logging')
-    console.log(section)
-    const value = section.get('level')
-    expect(value).toEqual('debug')
+    const section = root.getSection('logging.level')
+
+    expect(section.value).toEqual('debug')
   })
 })
+
+it('should get top level section', () => {
+  // given
+  const source = new JsonConfigurationSource()
+  source.path = './test/examples/basic/basic-configuration-1.json'
+
+  const builder = new ConfigurationBuilder()
+  builder.add(source)
+
+  const root: IConfigurationRoot = builder.build()
+
+  // when
+  const section = root.getSection('logging').getSection('level')
+
+  expect(section.value).toEqual('debug')
+})
+
+it('should get value from nested config', () => {
+  // given
+  const source = new JsonConfigurationSource()
+  source.path = './test/examples/basic/basic-configuration-1.json'
+
+  const builder = new ConfigurationBuilder()
+  builder.add(source)
+
+  const root: IConfigurationRoot = builder.build()
+
+  // when
+  const section = root.getSection('logging')
+  const value = section.get('level')
+  expect(value).toEqual('debug')
+})
+
 
 describe('provider', () => {
   it('grabs value for a nested section', () => {
@@ -53,14 +85,12 @@ describe('provider', () => {
     provider.load()
 
     // when
-    const value = provider.get('logging')
+    const value = provider.get('logging.level')
 
     // then
-    expect(value).toMatchObject({
-      level: 'debug',
-      format: 'json',
-    })
-  })
+    expect(value).toEqual('debug')
+
+ })
 
   it('reloads when file changes', () => {})
 })
