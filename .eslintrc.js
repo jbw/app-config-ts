@@ -5,7 +5,6 @@ module.exports = {
   parserOptions: {
     project: 'tsconfig.json',
     sourceType: 'module',
-  
   },
   env: {
     node: true,
@@ -13,15 +12,12 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
 
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'prettier',
-  ],
+  extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
 
   rules: {
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/explicit-function-return-type": "error",
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'error',
+    '@typescript-eslint/no-floating-promises': 'error',
+    '@typescript-eslint/require-await': 'error',
   },
-}
+};
