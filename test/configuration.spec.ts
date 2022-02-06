@@ -212,10 +212,3 @@ describe('overriding with multiple config files', () => {
     expect(root.get('ssl')).toBe(true);
   });
 });
-// describe('overriding configurations', () => {
-//   it('overrides a base configuration with override one', () => {});
-// });
-
-// describe('overriding configuation values by convention', () => {
-//   it('overrides value with environment variable', () => {});
-// });
