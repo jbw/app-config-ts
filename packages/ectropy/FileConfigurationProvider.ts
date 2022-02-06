@@ -8,7 +8,7 @@ export abstract class FileConfigurationProvider extends ConfigurationProvider {
     this.load();
   }
 
-  abstract loadFile(stream: any): void;
+  abstract loadFile(path?: string): void;
 
   public override load(): void {
     this.loadFile(this.source.path);

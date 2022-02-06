@@ -128,8 +128,6 @@ describe('provider', () => {
     // then
     expect(value).toEqual('debug');
   });
-
-  it('reloads when file changes', () => {});
 });
 
 describe('empty object handling', () => {
@@ -190,7 +188,7 @@ describe('overriding with environment variables', () => {
 });
 
 describe('overriding with multiple config files', () => {
-  it.only('overrides taking oldest specficied', () => {
+  it('overrides taking oldest specficied', () => {
     // given
     const devSource = new JsonConfigurationSource();
     devSource.path = './test/examples/overriding-multiple-configs/dev-config.json';

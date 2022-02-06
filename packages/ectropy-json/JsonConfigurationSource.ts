@@ -7,6 +7,7 @@ export class JsonConfigurationSource extends FileConfigurationSource {
   /**
    * @description This is the interface for the configuration of the application.
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public build(builder: IConfigurationBuilder): IConfigurationProvider {
     return new JsonConfigurationProvider(this);
   }

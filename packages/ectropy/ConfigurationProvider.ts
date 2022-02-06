@@ -1,7 +1,7 @@
 import { IConfigurationProvider } from '../ectropy/abstractions/IConfigurationProvider';
 
 export abstract class ConfigurationProvider implements IConfigurationProvider {
-  public readonly data: object | never;
+  data: object;
 
   constructor() {
     this.data = {};

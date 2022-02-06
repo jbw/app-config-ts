@@ -3,8 +3,6 @@ import { JsonConfigurationSource } from './JsonConfigurationSource';
 import * as fs from 'fs';
 
 export class JsonConfigurationProvider extends FileConfigurationProvider {
-  data: object | any;
-
   constructor(source: JsonConfigurationSource) {
     super(source);
   }
