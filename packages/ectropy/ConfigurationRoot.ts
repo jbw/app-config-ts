@@ -26,6 +26,17 @@ export class ConfigurationRoot implements IConfigurationRoot {
   }
 
   getChildren(key: string): IConfigurationSection[] {
-    throw new Error('Method not implemented.');
+    const result: IConfigurationSection[] = [];
+
+    for (let i = 0; i < this.providers.length; i++) {
+      const children = this.providers[i].getChildKeys(key);
+      console.log('getChildren', children);
+      if (children != null) {
+        for (let j = 0; j < children.length; j++) {
+          result.push(new ConfigurationSection(this, children[j]));
+        }
+      }
+    }
+    return result;
   }
 }

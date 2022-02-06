@@ -6,7 +6,9 @@ export class ConfigurationSection implements IConfigurationSection {
   key: string = ConfigurationPath.getSectionKey(this.path);
   value: string | null = this.root.get(this.path);
 
-  constructor(public readonly root: IConfigurationRoot, public readonly path: string) {}
+  constructor(public readonly root: IConfigurationRoot, public readonly path: string) {
+    console.log('ConfigurationSection.constructor', this.root, this.path);
+  }
 
   public get(key: string): string | null {
     console.log('ConfigurationSection.get', this.root, this.path, key);
@@ -19,6 +21,6 @@ export class ConfigurationSection implements IConfigurationSection {
   }
 
   public getChildren(key: string): IConfigurationSection[] {
-    return this.root.getChildren(this.path);
+    return this.root.getChildren(key);
   }
 }

@@ -3,7 +3,7 @@ import { JsonConfigurationSource } from './JsonConfigurationSource';
 import * as fs from 'fs';
 
 export class JsonConfigurationProvider extends FileConfigurationProvider {
-  data: object | unknown;
+  data: object | any;
 
   constructor(source: JsonConfigurationSource) {
     super(source);
@@ -32,8 +32,11 @@ export class JsonConfigurationProvider extends FileConfigurationProvider {
 
       if (typeof value === 'object') {
         const flattened = this.flatten(value, `${path}${key}.`);
+        console.log('flattened', flattened);
         Object.assign(result, flattened);
       } else {
+        // Assuming these are values
+        console.log(`flatten else ${path}${key}`, value);
         result[`${path}${key}`] = value;
       }
     });

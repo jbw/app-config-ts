@@ -24,7 +24,7 @@ describe('configuration-root', () => {
   it('get values from array', () => {
     // given
     const source = new JsonConfigurationSource();
-    source.path = './test/examples/basic/basic-configuration-array.json';
+    source.path = './test/examples/array/basic-configuration-array.json';
 
     const builder = new ConfigurationBuilder();
     builder.add(source);
@@ -85,6 +85,22 @@ it('should get value from nested config', () => {
   const section = root.getSection('logging');
   const value = section.get('level');
   expect(value).toEqual('debug');
+});
+
+it('should handle basic types', () => {
+  // given
+  const source = new JsonConfigurationSource();
+  source.path = './test/examples/basic/basic-types.json';
+
+  const builder = new ConfigurationBuilder();
+  builder.add(source);
+
+  const root: IConfigurationRoot = builder.build();
+
+  // when
+  const children = root.getSection('basicTypes').getSection('array').getSection('0').value;
+
+  expect(children).toEqual(1);
 });
 
 describe('provider', () => {

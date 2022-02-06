@@ -1,0 +1,35 @@
+{
+  "basicTypes": {
+    "string": "debug",
+    "hex": "0x68656c6c6f",
+    "boolean": true,
+    "number": 123,
+    "float": 1.23,
+    "array": [
+      1,
+      2,
+      3
+    ],
+    "tuple": [
+      1,
+      "2",
+      3
+    ],
+   
+    "object": {
+      "a": "b",
+      "c": "d"
+    },
+    "intersection": [
+      {
+        "a": "b"
+      },
+      {
+        "c": "d"
+      }
+    ],
+    "emptyObject": {},
+    "emptyArray": [],
+    "emptyString": ""
+  }
+}

@@ -9,4 +9,6 @@ export interface IConfigurationProvider {
    * @description Loads the configuration from the source.
    */
   load(): void;
+
+  getChildKeys(parentPath: string): string[];
 }
