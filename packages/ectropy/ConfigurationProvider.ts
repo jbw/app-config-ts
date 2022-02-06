@@ -8,7 +8,7 @@ export abstract class ConfigurationProvider implements IConfigurationProvider {
   }
 
   public get(key: string): string {
-    console.log('ConfigurationProvider.get', key, this.data[key]);
+    console.trace('ConfigurationProvider.get', key, this.data[key]);
     return this.data[key];
   }
 
@@ -19,14 +19,12 @@ export abstract class ConfigurationProvider implements IConfigurationProvider {
   public abstract load(): void;
 
   public getChildKeys(parentPath: string): string[] {
-    console.log('ConfigurationProvider.getChildKeys', parentPath);
+    console.trace('ConfigurationProvider.getChildKeys', parentPath);
     const results: string[] = [];
     const keys = Object.keys(this.data);
-    console.log('ConfigurationProvider.getChildKeys', keys);
+
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
-
-      console.log('datakey1', key, parentPath);
 
       if (key.startsWith(parentPath) && key.length > parentPath.length && key.charAt(parentPath.length) === '.') {
         results.push(this.segment(key, parentPath.length + 1));
@@ -38,9 +36,7 @@ export abstract class ConfigurationProvider implements IConfigurationProvider {
 
   private segment(key: string, prefixLength: number): string {
     const index = key.indexOf('.', prefixLength);
-
     const segment = index < 0 ? key.substring(prefixLength) : key.substring(prefixLength, index);
-    console.log('segment', key, prefixLength, index, segment);
     return segment;
   }
 }

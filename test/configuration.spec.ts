@@ -3,6 +3,18 @@ import { JsonConfigurationSource } from '../packages/ectropy-json/JsonConfigurat
 import { IConfigurationProvider } from '../packages/ectropy/abstractions/IConfigurationProvider';
 import { IConfigurationRoot } from '../packages/ectropy/abstractions/IConfigurationRoot';
 
+function buildConfigurationProvider(path: string): IConfigurationProvider {
+  const source = new JsonConfigurationSource();
+  source.path = path;
+
+  const builder = new ConfigurationBuilder();
+  builder.add(source);
+
+  const provider: IConfigurationProvider = source.build(builder);
+  provider.load();
+  return provider;
+}
+
 describe('configuration-root', () => {
   it('should load configuration from json file', () => {
     // given
@@ -106,14 +118,9 @@ it('should handle basic types', () => {
 describe('provider', () => {
   it('grabs value for a nested section', () => {
     // given
-    const source = new JsonConfigurationSource();
-    source.path = './test/examples/basic/basic-configuration-1.json';
-
-    const builder = new ConfigurationBuilder();
-    builder.add(source);
-
-    const provider: IConfigurationProvider = source.build(builder);
-    provider.load();
+    const provider: IConfigurationProvider = buildConfigurationProvider(
+      './test/examples/basic/basic-configuration-1.json',
+    );
 
     // when
     const value = provider.get('logging.level');
@@ -125,10 +132,45 @@ describe('provider', () => {
   it('reloads when file changes', () => {});
 });
 
-describe('overriding configurations', () => {
-  it('overrides a base configuration with override one', () => {});
+describe('empty object handling', () => {
+  it('empty object adds as null', () => {
+    // given
+    const provider: IConfigurationProvider = buildConfigurationProvider('./test/examples/empty/empty-object.json');
+
+    // when
+    const value = provider.get('key');
+
+    // then
+    expect(value).toBeUndefined();
+  });
+
+  it('null object adds as empty string', () => {
+    // given
+    const provider: IConfigurationProvider = buildConfigurationProvider('./test/examples/empty/null-object.json');
+
+    // when
+    const value = provider.get('key');
+
+    // then
+    expect(value).toBe('');
+  });
+
+  it('nested object does not add parent', () => {
+    // given
+    const provider: IConfigurationProvider = buildConfigurationProvider('./test/examples/empty/nested-object.json');
+
+    // when
+    const value = provider.get('key.nested');
+
+    // then
+    expect(value).toBe('value');
+  });
 });
 
-describe('overriding configuation values by convention', () => {
-  it('overrides value with environment variable', () => {});
-});
+// describe('overriding configurations', () => {
+//   it('overrides a base configuration with override one', () => {});
+// });
+
+// describe('overriding configuation values by convention', () => {
+//   it('overrides value with environment variable', () => {});
+// });
