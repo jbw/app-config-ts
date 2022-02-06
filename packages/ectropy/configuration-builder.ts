@@ -17,6 +17,7 @@ export class ConfigurationBuilder implements IConfigurationBuilder {
 
     this.sources.forEach((source) => {
       const provider: IConfigurationProvider = source.build(this);
+      console.log('ConfigurationBuilder.build', provider);
       providers.push(provider);
     });
 

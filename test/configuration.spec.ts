@@ -168,6 +168,12 @@ describe('empty object handling', () => {
 });
 
 describe('overriding with environment variables', () => {
+  const env = Object.assign({}, process.env);
+
+  afterAll(() => {
+    process.env = env;
+  });
+
   it('environment variables overrides config', () => {
     // given
     const provider: IConfigurationProvider = buildConfigurationProvider(
@@ -175,6 +181,7 @@ describe('overriding with environment variables', () => {
     );
 
     // when
+    process.env.LOGGING_LEVEL = 'debug';
     const value = provider.get('logging.level');
 
     // then
@@ -182,6 +189,29 @@ describe('overriding with environment variables', () => {
   });
 });
 
+describe('overriding with multiple config files', () => {
+  it.only('overrides taking oldest specficied', () => {
+    // given
+    const devSource = new JsonConfigurationSource();
+    devSource.path = './test/examples/overriding-multiple-configs/dev-config.json';
+
+    const prodSource = new JsonConfigurationSource();
+    prodSource.path = './test/examples/overriding-multiple-configs/prod-config.json';
+
+    const builder = new ConfigurationBuilder();
+    builder.add(prodSource);
+    builder.add(devSource);
+
+    // when
+    const root = builder.build();
+
+    // then
+    expect(root.get('appName')).toBe('test-app');
+    expect(root.get('logging.level')).toBe('info');
+    expect(root.get('logging.format')).toBe('json');
+    expect(root.get('ssl')).toBe(true);
+  });
+});
 // describe('overriding configurations', () => {
 //   it('overrides a base configuration with override one', () => {});
 // });

@@ -1,0 +1,7 @@
+{
+  "logging": {
+    "level": "debug",
+    "format": "stdout"
+  },
+  "appName": "test-app"
+}
