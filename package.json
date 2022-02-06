@@ -67,6 +67,9 @@
       "ts-jest": {
         "tsconfig": "tsconfig.json"
       }
-    }
+    },
+    "setupFiles": [
+      "<rootDir>/jest/set-env-vars.ts"
+    ]
   }
 }

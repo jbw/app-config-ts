@@ -7,16 +7,16 @@ export class ConfigurationSection implements IConfigurationSection {
   value: string | null = this.root.get(this.path);
 
   constructor(public readonly root: IConfigurationRoot, public readonly path: string) {
-    console.trace('ConfigurationSection.constructor', this.root, this.path);
+    console.debug('ConfigurationSection.constructor', this.root, this.path);
   }
 
   public get(key: string): string | null {
-    console.trace('ConfigurationSection.get', this.root, this.path, key);
+    console.debug('ConfigurationSection.get', this.root, this.path, key);
     return this.root.get(ConfigurationPath.combine(this.path, key));
   }
 
   public getSection(section: string): IConfigurationSection {
-    console.trace('ConfigurationSection.getSection', this.root, this.path, section);
+    console.debug('ConfigurationSection.getSection', this.root, this.path, section);
     return this.root.getSection(ConfigurationPath.combine(this.path, section));
   }
 

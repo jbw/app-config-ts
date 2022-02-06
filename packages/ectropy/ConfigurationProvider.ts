@@ -8,7 +8,15 @@ export abstract class ConfigurationProvider implements IConfigurationProvider {
   }
 
   public get(key: string): string {
-    console.trace('ConfigurationProvider.get', key, this.data[key]);
+    const envKey = key.toUpperCase().replace(/\./g, '_');
+
+    const envValue = process.env[envKey];
+    if (envValue) {
+      this.set(key, envValue.toString());
+    }
+
+    console.debug('ConfigurationProvider.get', key, this.data[key]);
+
     return this.data[key];
   }
 
@@ -19,7 +27,7 @@ export abstract class ConfigurationProvider implements IConfigurationProvider {
   public abstract load(): void;
 
   public getChildKeys(parentPath: string): string[] {
-    console.trace('ConfigurationProvider.getChildKeys', parentPath);
+    console.debug('ConfigurationProvider.getChildKeys', parentPath);
     const results: string[] = [];
     const keys = Object.keys(this.data);
 

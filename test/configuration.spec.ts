@@ -167,6 +167,21 @@ describe('empty object handling', () => {
   });
 });
 
+describe('overriding with environment variables', () => {
+  it('environment variables overrides config', () => {
+    // given
+    const provider: IConfigurationProvider = buildConfigurationProvider(
+      './test/examples/envvars/overridden-by-envvar.json',
+    );
+
+    // when
+    const value = provider.get('logging.level');
+
+    // then
+    expect(value).toBe('debug');
+  });
+});
+
 // describe('overriding configurations', () => {
 //   it('overrides a base configuration with override one', () => {});
 // });
