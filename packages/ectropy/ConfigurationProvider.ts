@@ -15,8 +15,6 @@ export abstract class ConfigurationProvider implements IConfigurationProvider {
       this.set(key, envValue.toString());
     }
 
-    console.debug('ConfigurationProvider.get', key, this.data[key]);
-
     return this.data[key];
   }
 
