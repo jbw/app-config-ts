@@ -1,6 +1,8 @@
+import * as fs from 'fs';
+
 import { FileConfigurationProvider } from '../ectropy/file-configuration-provider';
 import { JsonConfigurationSource } from './json-configuration-source';
-import * as fs from 'fs';
+import { ConfigurationPath } from '../ectropy/configuration-path';
 
 export class JsonConfigurationProvider extends FileConfigurationProvider {
   constructor(source: JsonConfigurationSource) {
@@ -26,7 +28,7 @@ export class JsonConfigurationProvider extends FileConfigurationProvider {
         result[`${path}${key}`] = '';
       } else if (typeof value === 'object') {
         // Recurse until we reach a value
-        const flattened = this.flatten(value, `${path}${key}.`);
+        const flattened = this.flatten(value, `${path}${key}${ConfigurationPath.keyDelimiter}`);
 
         Object.assign(result, flattened);
       } else {
