@@ -1,4 +1,4 @@
-import { ConfigurationProvider } from './ConfigurationProvider';
+import { ConfigurationProvider } from './configuration-provider';
 import { FileConfigurationSource } from './file-configuration-source';
 
 export abstract class FileConfigurationProvider extends ConfigurationProvider {

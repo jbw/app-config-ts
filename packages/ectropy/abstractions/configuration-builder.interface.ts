@@ -1,5 +1,5 @@
-import { IConfigurationRoot } from './IConfigurationRoot';
-import { IConfigurationSource } from './IConfigurationSource';
+import { IConfigurationRoot } from './configuration-root.interface';
+import { IConfigurationSource } from './configuration-source.interface';
 
 /**
  * @description Builds application configuration.

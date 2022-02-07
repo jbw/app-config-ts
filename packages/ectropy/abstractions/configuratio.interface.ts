@@ -1,4 +1,4 @@
-import { IConfigurationSection } from './IConfigurationSection';
+import { IConfigurationSection } from './configuration-section.interface';
 
 /**
  * @description key/value application configuration properties.

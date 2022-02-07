@@ -1,4 +1,4 @@
-import { IConfigurationProvider } from '../ectropy/abstractions/IConfigurationProvider';
+import { IConfigurationProvider } from './abstractions/configuration-provider.interface';
 
 export abstract class ConfigurationProvider implements IConfigurationProvider {
   data: object;

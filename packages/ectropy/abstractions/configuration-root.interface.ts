@@ -1,5 +1,5 @@
-import { IConfigurationProvider } from './IConfigurationProvider';
-import { IConfigurationSection } from './IConfigurationSection';
+import { IConfigurationProvider } from './configuration-provider.interface';
+import { IConfigurationSection } from './configuration-section.interface';
 
 export interface IConfigurationRoot {
   providers: IConfigurationProvider[];

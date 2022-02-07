@@ -1,6 +1,6 @@
-import { IConfigurationRoot } from './abstractions/IConfigurationRoot';
-import { IConfigurationSection } from './abstractions/IConfigurationSection';
-import { ConfigurationPath } from './ConfigurationPath';
+import { IConfigurationRoot } from './abstractions/configuration-root.interface';
+import { IConfigurationSection } from './abstractions/configuration-section.interface';
+import { ConfigurationPath } from './configuration-path';
 
 export class ConfigurationSection implements IConfigurationSection {
   key: string = ConfigurationPath.getSectionKey(this.path);

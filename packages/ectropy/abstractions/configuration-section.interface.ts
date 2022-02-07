@@ -1,4 +1,4 @@
-import { IConfiguration } from './IConfiguration';
+import { IConfiguration } from './configuratio.interface';
 
 export interface IConfigurationSection extends IConfiguration {
   key: string;

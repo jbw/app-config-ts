@@ -1,6 +1,6 @@
-import { IConfigurationProvider } from '../ectropy/abstractions/IConfigurationProvider';
-import { IConfigurationBuilder } from '../ectropy/abstractions/IConfigurationBuilder';
-import { JsonConfigurationProvider } from './JsonConfigurationProvider';
+import { IConfigurationProvider } from '../ectropy/abstractions/configuration-provider.interface';
+import { IConfigurationBuilder } from '../ectropy/abstractions/configuration-builder.interface';
+import { JsonConfigurationProvider } from './json-configuration-provider';
 import { FileConfigurationSource } from '../ectropy/file-configuration-source';
 
 export class JsonConfigurationSource extends FileConfigurationSource {

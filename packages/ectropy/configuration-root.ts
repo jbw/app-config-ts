@@ -1,7 +1,7 @@
-import { IConfigurationRoot } from './abstractions/IConfigurationRoot';
-import { IConfigurationProvider } from './abstractions/IConfigurationProvider';
-import { IConfigurationSection } from './abstractions/IConfigurationSection';
-import { ConfigurationSection } from './ConfigurationSection';
+import { IConfigurationRoot } from './abstractions/configuration-root.interface';
+import { IConfigurationProvider } from './abstractions/configuration-provider.interface';
+import { IConfigurationSection } from './abstractions/configuration-section.interface';
+import { ConfigurationSection } from './configuration-section';
 
 export class ConfigurationRoot implements IConfigurationRoot {
   public providers: IConfigurationProvider[] = [];

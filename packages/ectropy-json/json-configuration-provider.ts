@@ -1,5 +1,5 @@
-import { FileConfigurationProvider } from '../ectropy/FileConfigurationProvider';
-import { JsonConfigurationSource } from './JsonConfigurationSource';
+import { FileConfigurationProvider } from '../ectropy/file-configuration-provider';
+import { JsonConfigurationSource } from './json-configuration-source';
 import * as fs from 'fs';
 
 export class JsonConfigurationProvider extends FileConfigurationProvider {
