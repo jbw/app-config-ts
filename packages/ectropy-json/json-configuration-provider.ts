@@ -22,14 +22,15 @@ export class JsonConfigurationProvider extends FileConfigurationProvider {
       const value = obj[key];
 
       if (value === null) {
+        // Set as empty string
         result[`${path}${key}`] = '';
       } else if (typeof value === 'object') {
+        // Recurse until we reach a value
         const flattened = this.flatten(value, `${path}${key}.`);
 
         Object.assign(result, flattened);
       } else {
-        // Assuming these are values
-
+        // Assume these are values
         result[`${path}${key}`] = value;
       }
     });
