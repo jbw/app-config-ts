@@ -1,5 +1,5 @@
-import { IConfigurationProvider } from '../ectropy/abstractions/configuration-provider.interface';
-import { IConfigurationBuilder } from '../ectropy/abstractions/configuration-builder.interface';
+import { IConfigurationProvider } from '../ectropy/configuration-provider.interface';
+import { IConfigurationBuilder } from '../ectropy/configuration-builder.interface';
 import { JsonConfigurationProvider } from './json-configuration-provider';
 import { FileConfigurationSource } from '../ectropy/file-configuration-source';
 

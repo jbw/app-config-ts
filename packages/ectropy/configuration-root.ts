@@ -1,6 +1,6 @@
-import { IConfigurationRoot } from './abstractions/configuration-root.interface';
-import { IConfigurationProvider } from './abstractions/configuration-provider.interface';
-import { IConfigurationSection } from './abstractions/configuration-section.interface';
+import { IConfigurationRoot } from './configuration-root.interface';
+import { IConfigurationProvider } from './configuration-provider.interface';
+import { IConfigurationSection } from './configuration-section.interface';
 import { ConfigurationSection } from './configuration-section';
 
 export class ConfigurationRoot implements IConfigurationRoot {

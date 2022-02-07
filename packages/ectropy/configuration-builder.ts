@@ -1,7 +1,7 @@
-import { IConfigurationBuilder } from './abstractions/configuration-builder.interface';
-import { IConfigurationSource } from './abstractions/configuration-source.interface';
-import { IConfigurationRoot } from './abstractions/configuration-root.interface';
-import { IConfigurationProvider } from './abstractions/configuration-provider.interface';
+import { IConfigurationBuilder } from './configuration-builder.interface';
+import { IConfigurationSource } from './configuration-source.interface';
+import { IConfigurationRoot } from './configuration-root.interface';
+import { IConfigurationProvider } from './configuration-provider.interface';
 import { ConfigurationRoot } from './configuration-root';
 
 export class ConfigurationBuilder implements IConfigurationBuilder {
