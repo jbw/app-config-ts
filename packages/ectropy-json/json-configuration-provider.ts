@@ -12,13 +12,19 @@ export class JsonConfigurationProvider extends FileConfigurationProvider {
   public override loadFile(path: string): void {
     const data = fs.readFileSync(path);
 
-    const parsed = JSON.parse(data.toString());
+    this.data = JsonParser.parse(data);
+  }
+}
 
+export class JsonParser {
+  public static parse(data: object): object {
+    const parsed = JSON.parse(data.toString());
     const result = this.flatten(parsed);
-    this.data = result;
+
+    return result;
   }
 
-  private flatten(obj: object, path = ''): object {
+  private static flatten(obj: object, path = ''): object {
     const result: object = {};
     Object.keys(obj).forEach((key) => {
       const value = obj[key];

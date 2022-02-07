@@ -5,6 +5,9 @@ import { IConfigurationProvider } from './configuration-provider.interface';
 import { ConfigurationRoot } from './configuration-root';
 
 export class ConfigurationBuilder implements IConfigurationBuilder {
+  /**
+   * @description Returns the sources of the configuration values.
+   */
   public readonly sources: IConfigurationSource[] = [];
 
   public add(source: IConfigurationSource): IConfigurationBuilder {
