@@ -16,7 +16,7 @@ export class ConfigurationSection implements IConfigurationSection {
   }
 
   public getSection(section: string): IConfigurationSection {
-    console.debug('ConfigurationSection.getSection', this.root, this.path, section);
+    console.debug('ConfigurationSection.getSection', this.path, section);
     return this.root.getSection(ConfigurationPath.combine(this.path, section));
   }
 
