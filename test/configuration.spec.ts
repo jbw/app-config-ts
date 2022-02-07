@@ -1,7 +1,7 @@
 import { ConfigurationBuilder } from '../packages/ectropy/configuration-builder';
-import { JsonConfigurationSource } from '../packages/ectropy-json/JsonConfigurationSource';
-import { IConfigurationProvider } from '../packages/ectropy/abstractions/IConfigurationProvider';
-import { IConfigurationRoot } from '../packages/ectropy/abstractions/IConfigurationRoot';
+import { JsonConfigurationSource } from '../packages/ectropy-json/json-configuration-source';
+import { IConfigurationProvider } from '../packages/ectropy/abstractions/configuration-provider.interface';
+import { IConfigurationRoot } from '../packages/ectropy/abstractions/configuration-root.interface';
 
 function buildConfigurationProvider(path: string): IConfigurationProvider {
   const source = new JsonConfigurationSource();
