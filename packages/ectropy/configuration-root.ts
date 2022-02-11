@@ -45,7 +45,6 @@ export class ConfigurationRoot implements IConfigurationRoot {
 
       if (children != null) {
         for (let j = 0; j < children.length; j++) {
-          console.log(key, children[j]);
           result.push(new ConfigurationSection(this, key + ConfigurationPath.keyDelimiter + children[j]));
         }
       }
