@@ -2,6 +2,7 @@ import { ConfigurationBuilder } from '../packages/ectropy/configuration-builder'
 import { JsonConfigurationSource } from '../packages/ectropy-json/json-configuration-source';
 import { IConfigurationProvider } from '../packages/ectropy/configuration-provider.interface';
 import { IConfigurationRoot } from '../packages/ectropy/configuration-root.interface';
+import { ConfigurationRoot } from '../packages/ectropy/configuration-root';
 
 function buildConfigurationProvider(path: string): IConfigurationProvider {
   const source = new JsonConfigurationSource();
@@ -96,6 +97,22 @@ it('should get value from nested config', () => {
   // when
   const section = root.getSection('logging');
   const value = section.get('level');
+  expect(value).toEqual('debug');
+});
+
+it('should get value from config as a type', () => {
+  // given
+  const source = new JsonConfigurationSource();
+  source.path = './test/examples/basic/basic-configuration-1.json';
+
+  const builder = new ConfigurationBuilder();
+  builder.add(source);
+
+  const root: IConfigurationRoot = builder.build();
+
+  // when
+  const section = (root as ConfigurationRoot).getSectionByType<{ level: string; format: string }>('logging');
+  const value = section.level;
   expect(value).toEqual('debug');
 });
 

@@ -2,6 +2,7 @@ import { IConfigurationRoot } from './configuration-root.interface';
 import { IConfigurationProvider } from './configuration-provider.interface';
 import { IConfigurationSection } from './configuration-section.interface';
 import { ConfigurationSection } from './configuration-section';
+import { ConfigurationPath } from './configuration-path';
 
 export class ConfigurationRoot implements IConfigurationRoot {
   public providers: IConfigurationProvider[] = [];
@@ -25,6 +26,17 @@ export class ConfigurationRoot implements IConfigurationRoot {
     return null;
   }
 
+  public getSectionByType<T>(section: string): T {
+    const sections = this.getSection(section).getChildren(section);
+
+    const obj = {} as T;
+    sections.forEach((section) => {
+      obj[section.key] = section.value;
+    });
+
+    return obj;
+  }
+
   getChildren(key: string): IConfigurationSection[] {
     const result: IConfigurationSection[] = [];
 
@@ -33,7 +45,8 @@ export class ConfigurationRoot implements IConfigurationRoot {
 
       if (children != null) {
         for (let j = 0; j < children.length; j++) {
-          result.push(new ConfigurationSection(this, children[j]));
+          console.log(key, children[j]);
+          result.push(new ConfigurationSection(this, key + ConfigurationPath.keyDelimiter + children[j]));
         }
       }
     }
