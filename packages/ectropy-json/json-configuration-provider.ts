@@ -26,23 +26,18 @@ export class JsonParser {
 
   private static flatten(obj: object, path = ''): object {
     const result: object = {};
-    console.log('flatten', obj, path);
+
     Object.keys(obj).forEach((key) => {
       const value = obj[key];
 
-      console.log('flatten', key, value);
       if (value === null) {
         // Set as empty string
         result[`${path}${key}`] = '';
       } else if (typeof value === 'object') {
-        // Set object to key
-        console.log('flatten', key, value);
-        console.debug('flatten', `${path}${key}`, value);
+        // Set object to key to allow access to nested values
         result[`${path}${key}`] = value;
-
         // Recurse until we reach a value
         const flattened = this.flatten(value, `${path}${key}${ConfigurationPath.keyDelimiter}`);
-
         Object.assign(result, flattened);
       } else {
         // Assume these are values

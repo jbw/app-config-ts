@@ -28,12 +28,9 @@ export class ConfigurationRoot implements IConfigurationRoot {
   }
 
   public getSectionByType<T>(sectionKey: string): T {
-    const sections = this.getSection(sectionKey);
-    console.log(sectionKey, sections);
-
+    const section = this.getSection(sectionKey);
     const obj = {} as T;
-    obj[sectionKey] = sections.value;
-
+    obj[sectionKey] = section.value;
     return obj[sectionKey];
   }
 
@@ -42,10 +39,8 @@ export class ConfigurationRoot implements IConfigurationRoot {
 
     for (let i = 0; i < this.providers.length; i++) {
       const children = this.providers[i].getChildKeys(key);
-      console.log('children', children, key);
       if (children != null) {
         for (let j = 0; j < children.length; j++) {
-          console.log('root', key, 'key', children[j]);
           result.push(new ConfigurationSection(this, key + ConfigurationPath.keyDelimiter + children[j]));
         }
       }

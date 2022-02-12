@@ -16,14 +16,14 @@ export abstract class ConfigurationProvider implements IConfigurationProvider {
       this.set(key, envValue.toString());
     }
 
-    console.log('ConfigurationProvider.get', key, this.data);
-
     const value = this.data[key];
-    console.log('ConfigurationProvider.get', key, value);
 
+    // Handle null values as empty strings
     if (value === null) {
       return '';
     }
+
+    // Handle empty objects as null
     if (typeof value === 'object' && Object.keys(value).length === 0) {
       return null;
     }
@@ -42,36 +42,26 @@ export abstract class ConfigurationProvider implements IConfigurationProvider {
     const results: string[] = [];
 
     if (parentPath == null) {
-      console.log('parentPath == null');
-      Object.keys(this.data).forEach((dataKey) => {
-        results.push(this.segment(dataKey, 0));
+      Object.keys(this.data).forEach((key) => {
+        results.push(this.segment(key, 0));
       });
     } else {
-      const keys = Object.keys(this.data);
-
-      for (let i = 0; i < keys.length; i++) {
-        const key = keys[i];
-        console.log('childkey', key, parentPath);
-
+      Object.keys(this.data).forEach((key) => {
         if (
           key.startsWith(parentPath) &&
           key.length > parentPath.length &&
           key.charAt(parentPath.length) === ConfigurationPath.keyDelimiter
         ) {
-          console.log(parentPath);
           const segment = this.segment(key, parentPath.length + 1);
           results.push(segment);
         }
-      }
+      });
     }
-
     return results;
   }
 
   private segment(key: string, prefixLength: number): string {
-    console.log('segment', key, prefixLength);
     const index = key.indexOf(ConfigurationPath.keyDelimiter, prefixLength);
-    console.log('index', index);
     const segment = index < 0 ? key.substring(prefixLength) : key.substring(prefixLength, index);
     return segment;
   }
