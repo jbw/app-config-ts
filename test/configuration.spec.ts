@@ -100,7 +100,7 @@ it('should get value from nested config', () => {
   expect(value).toEqual('debug');
 });
 
-it('should get value from config as a type', () => {
+it('should get nested value from config using a type', () => {
   // given
   const source = new JsonConfigurationSource();
   source.path = './test/examples/nested/heroes.json';
@@ -116,7 +116,7 @@ it('should get value from config as a type', () => {
   expect(value).toEqual(100);
 });
 
-it('should get value from config as a type', () => {
+it('should get value from config using a type', () => {
   // given
   const source = new JsonConfigurationSource();
   source.path = './test/examples/basic/basic-configuration-1.json';
