@@ -10,6 +10,8 @@ export class ConfigurationPath {
   }
 
   public static getSectionKey(path: string): string {
-    return path.substring(path.lastIndexOf(ConfigurationPath.keyDelimiter) + 1);
+    const sectionKey = path.substring(path.lastIndexOf(ConfigurationPath.keyDelimiter) + 1);
+    console.debug('getSectionKey', path, sectionKey);
+    return sectionKey;
   }
 }
