@@ -100,7 +100,23 @@ it('should get value from nested config', () => {
   expect(value).toEqual('debug');
 });
 
-it('should get value from config as a type', () => {
+it('should get nested value from config using a type', () => {
+  // given
+  const source = new JsonConfigurationSource();
+  source.path = './test/examples/nested/heroes.json';
+
+  const builder = new ConfigurationBuilder();
+  builder.add(source);
+
+  const root: IConfigurationRoot = builder.build();
+
+  // when
+  const section = (root as ConfigurationRoot).getSectionByType<{ spiderman: { powers: { strength: number } } }>('hero');
+  const value = section.spiderman.powers.strength;
+  expect(value).toEqual(100);
+});
+
+it('should get value from config using a type', () => {
   // given
   const source = new JsonConfigurationSource();
   source.path = './test/examples/basic/basic-configuration-1.json';
@@ -111,8 +127,8 @@ it('should get value from config as a type', () => {
   const root: IConfigurationRoot = builder.build();
 
   // when
-  const section = (root as ConfigurationRoot).getSectionByType<{ level: string; format: string }>('logging');
-  const value = section.level;
+  const logging = (root as ConfigurationRoot).getSectionByType<{ level: string; format: string }>('logging');
+  const value = logging.level;
   expect(value).toEqual('debug');
 });
 
@@ -156,7 +172,7 @@ describe('empty object handling', () => {
     const value = provider.get('key');
 
     // then
-    expect(value).toBeUndefined();
+    expect(value).toBeNull();
   });
 
   it('null object adds as empty string', () => {

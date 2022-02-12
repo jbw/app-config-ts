@@ -17,6 +17,7 @@ export class ConfigurationRoot implements IConfigurationRoot {
 
   get(key: string): string | null {
     for (let i = 0; i < this.providers.length; i++) {
+      console.debug('ConfigurationRoot.get', key, this.providers[i]);
       const value = this.providers[i].get(key);
       if (value != null) {
         return value;
@@ -26,15 +27,13 @@ export class ConfigurationRoot implements IConfigurationRoot {
     return null;
   }
 
-  public getSectionByType<T>(section: string): T {
-    const sections = this.getSection(section).getChildren(section);
-
+  public getSectionByType<T>(sectionKey: string): T {
+    // HACK: Currently this is simplified by setting the object on a section in JsonConfigurationProvider.flatten
+    // Might not be able to assume this will be done for all format extensions such as YAML or INI.
+    const section = this.getSection(sectionKey);
     const obj = {} as T;
-    sections.forEach((section) => {
-      obj[section.key] = section.value;
-    });
-
-    return obj;
+    obj[sectionKey] = section.value;
+    return obj[sectionKey];
   }
 
   getChildren(key: string): IConfigurationSection[] {
@@ -42,7 +41,6 @@ export class ConfigurationRoot implements IConfigurationRoot {
 
     for (let i = 0; i < this.providers.length; i++) {
       const children = this.providers[i].getChildKeys(key);
-
       if (children != null) {
         for (let j = 0; j < children.length; j++) {
           result.push(new ConfigurationSection(this, key + ConfigurationPath.keyDelimiter + children[j]));
