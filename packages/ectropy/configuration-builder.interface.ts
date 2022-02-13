@@ -10,5 +10,7 @@ export interface IConfigurationBuilder {
 
   add(configurationSourcec: IConfigurationSource): IConfigurationBuilder;
 
+  setBasePath(basePath: string): IConfigurationBuilder;
+
   build(): IConfigurationRoot;
 }

@@ -9,13 +9,6 @@ export abstract class ConfigurationProvider implements IConfigurationProvider {
   }
 
   public get(key: string): string | null {
-    const envKey = key.toUpperCase().replace(/\./g, '_');
-
-    const envValue = process.env[envKey];
-    if (envValue) {
-      this.set(key, envValue.toString());
-    }
-
     const value = this.data[key];
 
     // Handle null values as empty strings

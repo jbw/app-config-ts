@@ -3,6 +3,7 @@ import { JsonConfigurationSource } from '../packages/ectropy-json/json-configura
 import { IConfigurationProvider } from '../packages/ectropy/configuration-provider.interface';
 import { IConfigurationRoot } from '../packages/ectropy/configuration-root.interface';
 import { ConfigurationRoot } from '../packages/ectropy/configuration-root';
+import { EnvironmentVariablesConfigurationSource } from '../packages/ectropy/environment-variables-configuration-source';
 
 function buildConfigurationProvider(path: string): IConfigurationProvider {
   const source = new JsonConfigurationSource();
@@ -111,8 +112,24 @@ it('should get nested value from config using a type', () => {
   const root: IConfigurationRoot = builder.build();
 
   // when
-  const section = (root as ConfigurationRoot).getSectionByType<{ spiderman: { powers: { strength: number } } }>('hero');
+  const section = (root as ConfigurationRoot).getWithType<{ spiderman: { powers: { strength: number } } }>('hero');
   const value = section.spiderman.powers.strength;
+  expect(value).toEqual(100);
+});
+
+it('should get nested value from config using a type', () => {
+  // given
+  const source = new JsonConfigurationSource();
+  source.path = './test/examples/nested/heroes.json';
+
+  const builder = new ConfigurationBuilder();
+  builder.add(source);
+
+  const root: IConfigurationRoot = builder.build();
+
+  // when
+  const spiderman = (root as ConfigurationRoot).getWithType<{ powers: { strength: number } }>('hero.spiderman');
+  const value = spiderman.powers.strength;
   expect(value).toEqual(100);
 });
 
@@ -127,7 +144,7 @@ it('should get value from config using a type', () => {
   const root: IConfigurationRoot = builder.build();
 
   // when
-  const logging = (root as ConfigurationRoot).getSectionByType<{ level: string; format: string }>('logging');
+  const logging = (root as ConfigurationRoot).getWithType<{ level: string; format: string }>('logging');
   const value = logging.level;
   expect(value).toEqual('debug');
 });
@@ -207,13 +224,15 @@ describe('overriding with environment variables', () => {
 
   it('environment variables overrides config', () => {
     // given
-    const provider: IConfigurationProvider = buildConfigurationProvider(
-      './test/examples/envvars/overridden-by-envvar.json',
-    );
+    process.env.logging_level = 'debug';
+
+    const root = new ConfigurationBuilder()
+      .add(new EnvironmentVariablesConfigurationSource())
+      .add(new JsonConfigurationSource('./test/examples/envvars/overridden-by-envvar.json'))
+      .build() as ConfigurationRoot;
 
     // when
-    process.env.LOGGING_LEVEL = 'debug';
-    const value = provider.get('logging.level');
+    const value = root.get('logging.level');
 
     // then
     expect(value).toBe('debug');
@@ -223,11 +242,9 @@ describe('overriding with environment variables', () => {
 describe('overriding with multiple config files', () => {
   it('overrides taking oldest specficied', () => {
     // given
-    const devSource = new JsonConfigurationSource();
-    devSource.path = './test/examples/overriding-multiple-configs/dev-config.json';
+    const devSource = new JsonConfigurationSource('./test/examples/overriding-multiple-configs/dev-config.json');
 
-    const prodSource = new JsonConfigurationSource();
-    prodSource.path = './test/examples/overriding-multiple-configs/prod-config.json';
+    const prodSource = new JsonConfigurationSource('./test/examples/overriding-multiple-configs/prod-config.json');
 
     const builder = new ConfigurationBuilder();
     builder.add(prodSource);
