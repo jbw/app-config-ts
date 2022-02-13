@@ -29,7 +29,7 @@ export default HeroesConfig;
 ```
 
 ### Config
-```json
+``` {.json filename="examples/basic/heroes.config.json"}
 {
   "hero": {
     "spiderman": {
