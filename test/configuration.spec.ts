@@ -3,7 +3,6 @@ import { JsonConfigurationSource } from '../packages/ectropy-json/json-configura
 import { IConfigurationProvider } from '../packages/ectropy/configuration-provider.interface';
 import { IConfigurationRoot } from '../packages/ectropy/configuration-root.interface';
 import { ConfigurationRoot } from '../packages/ectropy/configuration-root';
-import { EnvironmentVariablesConfigurationSource } from '../packages/ectropy/environment-variables-configuration-source';
 
 function buildConfigurationProvider(path: string): IConfigurationProvider {
   const source = new JsonConfigurationSource();
