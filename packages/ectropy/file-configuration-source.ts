@@ -3,7 +3,7 @@ import { IConfigurationProvider } from './configuration-provider.interface';
 import { IConfigurationSource } from './configuration-source.interface';
 
 export abstract class FileConfigurationSource implements IConfigurationSource {
-  public path?: string;
+  constructor(public path?: string) {}
 
   abstract build(builder: IConfigurationBuilder): IConfigurationProvider;
 }

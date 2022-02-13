@@ -10,8 +10,15 @@ export class ConfigurationBuilder implements IConfigurationBuilder {
    */
   public readonly sources: IConfigurationSource[] = [];
 
+  private basePath = './';
+
   public add(source: IConfigurationSource): IConfigurationBuilder {
     this.sources.push(source);
+    return this;
+  }
+
+  public setBasePath(basePath: string): IConfigurationBuilder {
+    this.basePath = basePath;
     return this;
   }
 

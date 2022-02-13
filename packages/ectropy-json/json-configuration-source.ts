@@ -4,6 +4,10 @@ import { JsonConfigurationProvider } from './json-configuration-provider';
 import { FileConfigurationSource } from '../ectropy/file-configuration-source';
 
 export class JsonConfigurationSource extends FileConfigurationSource {
+  constructor(path?: string) {
+    super(path);
+  }
+
   /**
    * @description This is the interface for the configuration of the application.
    */
