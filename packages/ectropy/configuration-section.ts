@@ -7,7 +7,7 @@ export class ConfigurationSection implements IConfigurationSection {
   value: string | null = this.root.get(this.path);
 
   constructor(public readonly root: IConfigurationRoot, public readonly path: string) {
-    console.debug('ConfigurationSection.constructor', this.path, this.key, this.value);
+    console.debug('ConfigurationSection.constructor', this.path, this.key);
   }
 
   public get(key: string): string | null {

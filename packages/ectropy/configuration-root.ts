@@ -17,7 +17,8 @@ export class ConfigurationRoot implements IConfigurationRoot {
 
   get(key: string): string | null {
     for (let i = 0; i < this.providers.length; i++) {
-      console.debug('ConfigurationRoot.get', key, this.providers[i]);
+      console.debug('ConfigurationRoot.get', key);
+
       const value = this.providers[i].get(key);
       if (value != null) {
         return value;
