@@ -229,7 +229,7 @@ describe('overriding with environment variables', () => {
     process.env.logging_level = 'debug';
 
     const root = new ConfigurationBuilder()
-      .add(new EnvironmentVariablesConfigurationSource())
+      .addEnvironmentVariables()
       .add(new JsonConfigurationSource('./test/examples/envvars/overridden-by-envvar.json'))
       .build();
 

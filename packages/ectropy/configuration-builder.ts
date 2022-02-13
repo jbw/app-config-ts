@@ -3,6 +3,7 @@ import { IConfigurationSource } from './configuration-source.interface';
 import { IConfigurationRoot } from './configuration-root.interface';
 import { IConfigurationProvider } from './configuration-provider.interface';
 import { ConfigurationRoot } from './configuration-root';
+import { EnvironmentVariablesConfigurationSource } from './environment-variables-configuration-source';
 
 export class ConfigurationBuilder implements IConfigurationBuilder {
   /**
@@ -19,6 +20,14 @@ export class ConfigurationBuilder implements IConfigurationBuilder {
 
   public setBasePath(basePath: string): IConfigurationBuilder {
     this.basePath = basePath;
+    return this;
+  }
+
+  /**
+   * Extension method to add EnvironmentVariablesConfigurationSource
+   */
+  public addEnvironmentVariables(): IConfigurationBuilder {
+    this.add(new EnvironmentVariablesConfigurationSource());
     return this;
   }
 
