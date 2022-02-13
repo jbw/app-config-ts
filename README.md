@@ -7,9 +7,9 @@
 ```ts
 const root = new ConfigurationBuilder()
   .setBasePath('./')
-  .add(new EnvironmentVariablesConfigurationSource())
+  .addEnvironmentVariables()
   .add(new JsonConfigurationSource('heroes.config.json'))
-  .build() as ConfigurationRoot;
+  .build();
 
 const { spiderman } = root.getWithType<HeroesConfig>('hero');
 
