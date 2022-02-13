@@ -1,7 +1,9 @@
 # Welcome to Ectropy!
 
-
 ### Setup
+
+`examples/basic/app.ts`
+
 ```ts
 const root = new ConfigurationBuilder()
   .setBasePath('./')
@@ -14,7 +16,9 @@ const { spiderman } = root.getWithType<HeroesConfig>('hero');
 console.log(`Spider-Man strength: ${spiderman.powers.strength}`);
 ```
 
-### Type 
+### Type
+
+`examples/basic/heroes.config.ts`
 
 ```ts
 type HeroesConfig = {
@@ -29,6 +33,7 @@ export default HeroesConfig;
 ```
 
 ### Config
+
 `examples/basic/heroes.config.json`
 
 ```json
