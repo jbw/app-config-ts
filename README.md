@@ -40,7 +40,7 @@ const { spiderman } = root.getWithType<HeroesConfig>('hero');
 console.log(`Spider-Man strength: ${spiderman.powers.strength}`);
 ```
 
-### Config
+### Config file
 
 `examples/basic/heroes.config.json`
 
