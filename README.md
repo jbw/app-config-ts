@@ -1,5 +1,10 @@
 # Welcome to Ectropy!
 
+* Use classes to provide typed access to your configuration files. 
+* Slice and dice a configuration file into many types depending on the scenario and usage in your app.
+* Override configuration with environment variables by convention. 
+* Add multiple configuration files (e.g. `config.dev.json`, `condfig.prod.json`) which override values by layering (order matters!)
+
 ### Setup
 
 `examples/basic/app.ts`
