@@ -29,8 +29,9 @@ export default HeroesConfig;
 ```
 
 ### Config
-``` {.json filename="examples/basic/heroes.config.json"}
+```json
 {
+  // filename="examples/basic/heroes.config.json
   "hero": {
     "spiderman": {
       "name": "Spider-Man",
