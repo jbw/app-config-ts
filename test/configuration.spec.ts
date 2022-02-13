@@ -112,7 +112,9 @@ it('should get nested value from config using a type', () => {
   const root: IConfigurationRoot = builder.build();
 
   // when
-  const section = (root as ConfigurationRoot).getWithType<{ spiderman: { powers: { strength: number } } }>('hero');
+  const section = (root as ConfigurationRoot).getSectionWithType<{ spiderman: { powers: { strength: number } } }>(
+    'hero',
+  );
   const value = section.spiderman.powers.strength;
   expect(value).toEqual(100);
 });
@@ -128,7 +130,7 @@ it('should get nested value from config using a type', () => {
   const root: IConfigurationRoot = builder.build();
 
   // when
-  const spiderman = (root as ConfigurationRoot).getWithType<{ powers: { strength: number } }>('hero.spiderman');
+  const spiderman = (root as ConfigurationRoot).getSectionWithType<{ powers: { strength: number } }>('hero.spiderman');
   const value = spiderman.powers.strength;
   expect(value).toEqual(100);
 });
@@ -144,7 +146,7 @@ it('should get value from config using a type', () => {
   const root: IConfigurationRoot = builder.build();
 
   // when
-  const logging = (root as ConfigurationRoot).getWithType<{ level: string; format: string }>('logging');
+  const logging = (root as ConfigurationRoot).getSectionWithType<{ level: string; format: string }>('logging');
   const value = logging.level;
   expect(value).toEqual('debug');
 });
@@ -229,7 +231,7 @@ describe('overriding with environment variables', () => {
     const root = new ConfigurationBuilder()
       .add(new EnvironmentVariablesConfigurationSource())
       .add(new JsonConfigurationSource('./test/examples/envvars/overridden-by-envvar.json'))
-      .build() as ConfigurationRoot;
+      .build();
 
     // when
     const value = root.get('logging.level');

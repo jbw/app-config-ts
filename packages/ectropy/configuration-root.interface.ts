@@ -8,5 +8,7 @@ export interface IConfigurationRoot {
 
   get(key: string): string | null;
 
+  getSectionWithType<T>(sectionKey: string): T;
+
   getChildren(key: string): IConfigurationSection[];
 }

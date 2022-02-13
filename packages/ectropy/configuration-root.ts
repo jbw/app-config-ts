@@ -28,7 +28,7 @@ export class ConfigurationRoot implements IConfigurationRoot {
     return null;
   }
 
-  getWithType<T>(sectionKey: string): T {
+  getSectionWithType<T>(sectionKey: string): T {
     // HACK: Currently this is simplified by setting the object on a section in JsonConfigurationProvider.flatten
     // Might not be able to assume this will be done for all format extensions such as YAML or INI.
     const section = this.getSection(sectionKey);

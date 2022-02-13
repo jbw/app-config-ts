@@ -1,6 +1,5 @@
 import { ConfigurationBuilder } from '../../packages/ectropy/configuration-builder';
 import { JsonConfigurationSource } from '../../packages/ectropy-json';
-import { ConfigurationRoot } from '../../packages/ectropy/configuration-root';
 import HeroesConfig from './heroes.config';
 import { EnvironmentVariablesConfigurationSource } from '../../packages/ectropy/environment-variables-configuration-source';
 
@@ -11,7 +10,7 @@ const root = new ConfigurationBuilder()
   .setBasePath('./')
   .add(new EnvironmentVariablesConfigurationSource())
   .add(new JsonConfigurationSource('heroes.config.json'))
-  .build() as ConfigurationRoot;
+  .build();
 
-const { spiderman } = root.getWithType<HeroesConfig>('hero');
+const { spiderman } = root.getSectionWithType<HeroesConfig>('hero');
 console.log(`Spider-Man strength: ${spiderman.powers.strength}`);
