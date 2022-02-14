@@ -1,4 +1,4 @@
-# Welcome to Ectropy!
+# Welcome to `app.config.ts`!
 
 Typed configuration for your applications how you want it when you want it. 
 
