@@ -1,8 +1,8 @@
-import { ConfigurationBuilder } from '../packages/ectropy/configuration-builder';
-import { JsonConfigurationSource } from '../packages/ectropy-json/json-configuration-source';
-import { IConfigurationProvider } from '../packages/ectropy/configuration-provider.interface';
-import { IConfigurationRoot } from '../packages/ectropy/configuration-root.interface';
-import { ConfigurationRoot } from '../packages/ectropy/configuration-root';
+import { ConfigurationBuilder } from '../packages/app.config.ts/configuration-builder';
+import { JsonConfigurationSource } from '../packages/app.config.ts-json/json-configuration-source';
+import { IConfigurationProvider } from '../packages/app.config.ts/configuration-provider.interface';
+import { IConfigurationRoot } from '../packages/app.config.ts/configuration-root.interface';
+import { ConfigurationRoot } from '../packages/app.config.ts/configuration-root';
 
 function buildConfigurationProvider(path: string): IConfigurationProvider {
   const source = new JsonConfigurationSource();

@@ -1,5 +1,5 @@
-import { ConfigurationBuilder } from '../../packages/ectropy/configuration-builder';
-import { JsonConfigurationSource } from '../../packages/ectropy-json';
+import { ConfigurationBuilder } from '../../packages/app.config.ts/configuration-builder';
+import { JsonConfigurationSource } from '../../packages/app.config.ts-json';
 import HeroesConfig from './heroes.config';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
