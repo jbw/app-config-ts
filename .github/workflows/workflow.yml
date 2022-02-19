@@ -28,3 +28,10 @@ jobs:
     - run: npm run build --if-present
     - run: npm run lint
     - run: npm test
+    - name: 🚀 Release
+      env:
+        #SLACK_WEBHOOK: ${{ secrets.SEMANTIC_RELEASE_SLACK_WEBHOOK }}
+        SEMANTIC_RELEASE_PACKAGE: app.config.ts
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: |
+        npx semantic-release
