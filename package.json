@@ -1,5 +1,4 @@
 {
-  "private": true,
   "workspaces": [
     "packages/*"
   ],
@@ -13,13 +12,13 @@
   },
   "author": "Jason Watson <hi@jbw.codes>",
   "license": "MIT",
-  "homepage": "https://github.com/jbw/ectropy",
+  "homepage": "https://github.com/jbw/app.config.ts",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jbw/ectropy.git"
+    "url": "git@github.com:jbw/app.config.ts.git"
   },
   "bugs": {
-    "url": "https://github.com/jbw/ectropy/issues"
+    "url": "https://github.com/jbw/app.config.ts/issues"
   },
   "files": [
     "dist"
@@ -29,8 +28,7 @@
     "appconfig",
     "appsettings",
     "config",
-    "settings",
-    "ectropy"
+    "settings"
   ],
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
