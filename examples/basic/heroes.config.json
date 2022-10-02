@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "spiderman": {
+      "name": "Spider-Man",
+      "powers": {
+        "strength": 100,
+        "speed": 100,
+        "intelligence": 100,
+        "combat": 100
+      }
+    }
+  }
+}
