@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "strict": true,
@@ -17,14 +17,8 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "allowSyntheticDefaultImports": true,
-
-    "outDir": "./dist",
-    "baseUrl": "./",
-
-    "paths": {
-      "*": ["./node_modules/*"]
-    },
-    "typeRoots": ["node_modules/@types"]
+    "skipLibCheck": true
   },
-  "include": ["packages", "**/*.ts", "**/*.js"]
+  "exclude": ["node_modules", "**/*/lib", "**/*/dist"],
+  "references": [{ "path": "./packages/core" }, { "path": "./packages/json" }]
 }

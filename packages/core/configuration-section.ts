@@ -3,10 +3,13 @@ import { IConfigurationSection } from './configuration-section.interface';
 import { ConfigurationPath } from './configuration-path';
 
 export class ConfigurationSection implements IConfigurationSection {
-  key: string = ConfigurationPath.getSectionKey(this.path);
-  value: string | null = this.root.get(this.path);
+  key: string;
+  value: string | null;
 
   constructor(public readonly root: IConfigurationRoot, public readonly path: string) {
+    this.key = ConfigurationPath.getSectionKey(this.path);
+    this.value = this.root?.get(this.path);
+
     console.debug('ConfigurationSection.constructor', this.path, this.key);
   }
 

@@ -15,6 +15,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "build": "tsup *.ts --dts  --env.NODE_ENV production",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
   "devDependencies": {
     "@app-config-ts/core": "^0.0.1"
   },
@@ -22,7 +27,8 @@
     "@app-config-ts/core": "^0.0.1"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "engines": {
     "node": ">=14"
