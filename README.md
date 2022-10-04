@@ -7,7 +7,13 @@ Typed configuration for your applications how you want it when you want it.
 - Override configuration with environment variables by convention.
 - Add multiple configuration files (e.g. `config.dev.json`, `condfig.prod.json`) which override values by layering (order matters!)
 
-### Setup
+## Installation
+
+```bash
+npm install @app-config-ts/core @app-config-ts/json
+```
+
+## Setup
 
 `examples/basic/app.ts`
 
@@ -19,7 +25,7 @@ const root = new ConfigurationBuilder()
   .build();
 ```
 
-### Usage
+## Usage
 
 Create a type and bind it to your configuration. This can be a subsection of the configuration so you can use different settings based on your scenario.
 
@@ -40,7 +46,7 @@ const { spiderman } = root.getWithType<HeroesConfig>('hero');
 console.log(`Spider-Man strength: ${spiderman.powers.strength}`);
 ```
 
-### Config file
+## Config file
 
 `examples/basic/heroes.config.json`
 
