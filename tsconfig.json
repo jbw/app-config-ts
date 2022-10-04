@@ -5,7 +5,6 @@
     "moduleResolution": "node",
     "strict": true,
     "sourceMap": true,
-    
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -25,8 +24,7 @@
     "paths": {
       "*": ["./node_modules/*"]
     },
-    "typeRoots": ["node_modules/@types"],
- 
+    "typeRoots": ["node_modules/@types"]
   },
   "include": ["packages", "**/*.ts", "**/*.js"]
 }
