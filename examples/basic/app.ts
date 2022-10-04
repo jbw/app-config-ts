@@ -1,9 +1,6 @@
-import { ConfigurationBuilder } from '../../packages/core/configuration-builder';
-import { JsonConfigurationSource } from '../../packages/json';
+import { ConfigurationBuilder } from '@app-config-ts/core/configuration-builder';
+import { JsonConfigurationSource } from '@app-config-ts/json';
 import HeroesConfig from './heroes.config';
-
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-console.debug = function (): void {};
 
 const root = new ConfigurationBuilder()
   .setBasePath('./')
