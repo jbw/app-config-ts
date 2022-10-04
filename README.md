@@ -1,11 +1,11 @@
-# Welcome to `app.config.ts`!
+# Welcome to `app-config-ts`!
 
-Typed configuration for your applications how you want it when you want it. 
+Typed configuration for your applications how you want it when you want it.
 
-* Type your configuration with `class`, `interface` and `type` to provide typed access to your configuration files. 
-* Slice and dice a configuration file into many types depending on the scenario and usage in your app.
-* Override configuration with environment variables by convention. 
-* Add multiple configuration files (e.g. `config.dev.json`, `condfig.prod.json`) which override values by layering (order matters!)
+- Type your configuration with `class`, `interface` and `type` to provide typed access to your configuration files.
+- Slice and dice a configuration file into many types depending on the scenario and usage in your app.
+- Override configuration with environment variables by convention.
+- Add multiple configuration files (e.g. `config.dev.json`, `condfig.prod.json`) which override values by layering (order matters!)
 
 ### Setup
 
@@ -17,11 +17,11 @@ const root = new ConfigurationBuilder()
   .addEnvironmentVariables()
   .add(new JsonConfigurationSource('heroes.config.json'))
   .build();
-
 ```
 
-### Usage 
-Create a type and bind it to your configuration. This can be a subsection of the configuration so you can use different settings based on your scenario. 
+### Usage
+
+Create a type and bind it to your configuration. This can be a subsection of the configuration so you can use different settings based on your scenario.
 
 ```ts
 type HeroesConfig = {

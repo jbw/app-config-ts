@@ -30,7 +30,7 @@ jobs:
       - name: 🚀 Release
         env:
           #SLACK_WEBHOOK: ${{ secrets.SEMANTIC_RELEASE_SLACK_WEBHOOK }}
-          SEMANTIC_RELEASE_PACKAGE: app.config.ts
+          SEMANTIC_RELEASE_PACKAGE: app-config-ts
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
         run: |
