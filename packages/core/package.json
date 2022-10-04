@@ -15,6 +15,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "exports": {
+    "./*": "./dist/*.js"
+  },
   "scripts": {
     "build": "tsup *.ts --dts --env.NODE_ENV production",
     "clean": "rimraf dist",

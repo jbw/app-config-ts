@@ -20,6 +20,7 @@
     "clean": "rimraf dist",
     "prepublishOnly": "npm run clean && npm run build"
   },
+  "main": "dist/index.js",
   "devDependencies": {
     "@app-config-ts/core": "^0.0.1"
   },
