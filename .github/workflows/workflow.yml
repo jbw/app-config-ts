@@ -34,4 +34,4 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
         run: |
-          yarn workspaces run semantic-release -d --debug -e semantic-release-monorepo
+          npx multi-semantic-release
