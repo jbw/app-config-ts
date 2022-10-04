@@ -10,7 +10,8 @@
     "test:cov": "jest --coverage --no-cache --runInBand",
     "lint": "eslint . --ext .js,.ts --fix"
   },
-  "name": "app.config.ts",
+  "name": "app-config-ts",
+  "version": "1.0.1",
   "author": "Jason Watson <hi@jbw.codes>",
   "license": "MIT",
   "homepage": "https://github.com/jbw/app.config.ts",
