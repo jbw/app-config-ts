@@ -1,5 +1,4 @@
 module.exports = {
-  extends: 'semantic-release-monorepo',
   branches: ['main', { name: 'beta', prerelease: true }, { name: 'alpha', prerelease: true }],
   plugins: [
     '@semantic-release/commit-analyzer',
