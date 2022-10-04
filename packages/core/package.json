@@ -21,7 +21,7 @@
     "prepublishOnly": "npm run clean && npm run build"
   },
   "files": [
-    "dist/",
+    "dist/**",
     "README.md"
   ],
   "engines": {
