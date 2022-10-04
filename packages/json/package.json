@@ -27,7 +27,7 @@
     "@app-config-ts/core": "^0.0.1"
   },
   "files": [
-    "dist",
+    "dist/**",
     "README.md"
   ],
   "engines": {
