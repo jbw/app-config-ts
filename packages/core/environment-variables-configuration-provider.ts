@@ -14,7 +14,7 @@ export class EnvironmentVariablesConfigurationProvider extends ConfigurationProv
       const value = env[key];
 
       if (value !== undefined) {
-        const envKey = key.replace(/\_/g, '.');
+        const envKey = key.replace(/_/g, '.');
         this.set(envKey, value);
       }
     });

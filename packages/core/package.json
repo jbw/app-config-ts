@@ -1,0 +1,32 @@
+{
+  "name": "@app-config-ts/core",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://github.com/jbw/app-config-ts",
+  "author": "Jason Watson <hi@jbw.codes>",
+  "bugs": {
+    "url": "https://github.com/jbw/app-config-ts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jbw/app-config-ts.git"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "keywords": [
+    "configuration",
+    "appconfig",
+    "appsettings",
+    "config",
+    "settings"
+  ]
+}

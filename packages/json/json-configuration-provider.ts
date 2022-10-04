@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 
-import { FileConfigurationProvider } from '../app.config.ts/file-configuration-provider';
+import { FileConfigurationProvider } from '../core/file-configuration-provider';
 import { JsonConfigurationSource } from './json-configuration-source';
-import { ConfigurationPath } from '../app.config.ts/configuration-path';
+import { ConfigurationPath } from '../core/configuration-path';
 
 export class JsonConfigurationProvider extends FileConfigurationProvider {
   constructor(source: JsonConfigurationSource) {
