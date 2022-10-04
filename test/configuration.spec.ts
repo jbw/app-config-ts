@@ -1,8 +1,8 @@
-import { ConfigurationBuilder } from '../packages/app.config.ts/configuration-builder';
-import { JsonConfigurationSource } from '../packages/app.config.ts-json/json-configuration-source';
-import { IConfigurationProvider } from '../packages/app.config.ts/configuration-provider.interface';
-import { IConfigurationRoot } from '../packages/app.config.ts/configuration-root.interface';
-import { ConfigurationRoot } from '../packages/app.config.ts/configuration-root';
+import { ConfigurationBuilder } from '../packages/core/configuration-builder';
+import { JsonConfigurationSource } from '../packages/json/json-configuration-source';
+import { IConfigurationProvider } from '../packages/core/configuration-provider.interface';
+import { IConfigurationRoot } from '../packages/core/configuration-root.interface';
+import { ConfigurationRoot } from '../packages/core/configuration-root';
 
 function buildConfigurationProvider(path: string): IConfigurationProvider {
   const source = new JsonConfigurationSource();

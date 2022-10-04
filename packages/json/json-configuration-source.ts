@@ -1,7 +1,7 @@
-import { IConfigurationProvider } from '../app.config.ts/configuration-provider.interface';
-import { IConfigurationBuilder } from '../app.config.ts/configuration-builder.interface';
+import { IConfigurationProvider } from '../core/configuration-provider.interface';
+import { IConfigurationBuilder } from '../core/configuration-builder.interface';
 import { JsonConfigurationProvider } from './json-configuration-provider';
-import { FileConfigurationSource } from '../app.config.ts/file-configuration-source';
+import { FileConfigurationSource } from '../core/file-configuration-source';
 
 export class JsonConfigurationSource extends FileConfigurationSource {
   constructor(path?: string) {
