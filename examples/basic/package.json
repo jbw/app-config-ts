@@ -14,7 +14,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@app-config-ts/core": "^1.0.2",
-    "@app-config-ts/json": "^1.0.2"
+    "@app-config-ts/core": "^1.0.3",
+    "@app-config-ts/json": "^1.0.3"
   }
 }
