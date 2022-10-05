@@ -16,11 +16,10 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup *.ts --dts --env.NODE_ENV production",
+    "build": "tsup *.ts --dts --env.NODE_ENV production && cp package.json dist",
     "clean": "rimraf dist",
     "prepublishOnly": "npm run clean && npm run build",
-    "postversion": "cp package.json dist",
-    "postbuild": "cp package.json dist"
+    "postversion": "cp -r package.json .."
   },
   "files": [
     "dist/**",
