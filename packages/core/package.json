@@ -15,13 +15,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "exports": {
-    "./*": "./dist/*.js"
-  },
   "scripts": {
     "build": "tsup *.ts --dts --env.NODE_ENV production",
     "clean": "rimraf dist",
-    "prepublishOnly": "npm run clean && npm run build"
+    "prepublishOnly": "npm run clean && npm run build",
+    "postversion": "cp package.json dist"
   },
   "files": [
     "dist/**",
