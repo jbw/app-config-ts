@@ -22,10 +22,10 @@
   },
   "main": "dist/index.js",
   "devDependencies": {
-    "@app-config-ts/core": "^0.0.1"
+    "@app-config-ts/core": "*"
   },
   "peerDependencies": {
-    "@app-config-ts/core": "^0.0.1"
+    "@app-config-ts/core": "*"
   },
   "files": [
     "dist/**",
