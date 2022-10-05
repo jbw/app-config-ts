@@ -10,10 +10,19 @@ module.exports = {
         changelogFile: 'CHANGELOG.md',
       },
     ],
-    '@semantic-release/npm',
+    [
+      '@semantic-release/git',
+      {
+        assets: ['CHANGELOG.md'],
+        message: 'chore(release): ${nextRelease.version} [skip ci]',
+      },
+    ],
     '@semantic-release/github',
-    {
-      assets: ['CHANGELOG.md'],
-    },
+    [
+      '@semantic-release/npm',
+      {
+        pkgRoot: 'dist',
+      },
+    ],
   ],
 };
