@@ -5,7 +5,7 @@ Typed configuration for your applications how you want it when you want it.
 - Type your configuration with `class`, `interface` and `type` to provide typed access to your configuration files.
 - Slice and dice a configuration file into many types depending on the scenario and usage in your app.
 - Override configuration with environment variables by convention.
-- Add multiple configuration files (e.g. `config.dev.json`, `condfig.prod.json`) which override values by layering (order matters!)
+- Add multiple configuration files (e.g. `config.dev.json`, `config.prod.json`) which override values by layering (order matters!)
 
 ## Installation
 
