@@ -19,7 +19,7 @@
     "build": "tsup *.ts --dts --env.NODE_ENV production",
     "clean": "rimraf dist",
     "prepublishOnly": "npm run clean && npm run build",
-    "postversion": "cp -r package.json .."
+    "postversion": "cp -r dist/package.json .."
   },
   "files": [
     "dist",
