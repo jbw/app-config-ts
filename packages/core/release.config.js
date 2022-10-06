@@ -12,7 +12,7 @@ module.exports = {
     [
       '@semantic-release/git',
       {
-        assets: ['CHANGELOG.md'],
+        assets: ['CHANGELOG.md', 'package.json'],
         message: 'chore(release): ${nextRelease.version} [skip ci]',
       },
     ],
@@ -23,11 +23,6 @@ module.exports = {
       },
     ],
     '@semantic-release/github',
-    [
-      '@semantic-release/npm',
-      {
-        pkgRoot: 'dist',
-      },
-    ],
+    ['@semantic-release/npm'],
   ],
 };

@@ -1,6 +1,6 @@
 {
   "name": "@app-config-ts/json",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "",
   "homepage": "https://github.com/jbw/app-config-ts",
   "author": "Jason Watson <hi@jbw.codes>",
@@ -16,10 +16,10 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup *.ts --dts  --env.NODE_ENV production && cp package.json dist",
+    "build": "tsup *.ts --dts  --env.NODE_ENV production",
     "clean": "rimraf dist",
     "prepublishOnly": "npm run clean && npm run build",
-    "postversion": "cp -r package.json dist"
+    "postversion": "cp -r package.json .."
   },
   "main": "dist/index.js",
   "devDependencies": {
