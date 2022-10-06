@@ -29,7 +29,7 @@
     "node": ">=14"
   },
   "exports": {
-    "./*": "./dist/*"
+    "./*": "./dist/*.js"
   },
   "typesVersions": {
     "*": {
