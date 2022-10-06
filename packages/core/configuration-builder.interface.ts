@@ -8,9 +8,11 @@ import { IConfigurationSource } from './configuration-source.interface';
 export interface IConfigurationBuilder {
   readonly sources: IConfigurationSource[];
 
-  add(configurationSourcec: IConfigurationSource): IConfigurationBuilder;
+  add(configurationSource: IConfigurationSource): IConfigurationBuilder;
 
   setBasePath(basePath: string): IConfigurationBuilder;
+
+  getBasePath(): string;
 
   addEnvironmentVariables(): IConfigurationBuilder;
 
