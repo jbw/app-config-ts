@@ -1,7 +1,7 @@
 {
   "name": "@app-config-ts/core",
   "version": "0.0.0-development",
-  "description": "",
+  "description": "App Config for TypeScript",
   "homepage": "https://github.com/jbw/app-config-ts",
   "author": "Jason Watson <hi@jbw.codes>",
   "bugs": {
@@ -29,7 +29,7 @@
     "node": ">=14"
   },
   "exports": {
-    "./*": "./dist/*"
+    "./*": "./dist/*.js"
   },
   "typesVersions": {
     "*": {
