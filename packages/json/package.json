@@ -1,7 +1,7 @@
 {
   "name": "@app-config-ts/json",
   "version": "1.0.5",
-  "description": "",
+  "description": "JSON extension for @app-config-ts",
   "homepage": "https://github.com/jbw/app-config-ts",
   "author": "Jason Watson <hi@jbw.codes>",
   "bugs": {
