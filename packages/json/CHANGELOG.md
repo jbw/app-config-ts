@@ -1,3 +1,18 @@
+## @app-config-ts/json [1.0.5](https://github.com/jbw/app-config-ts/compare/@app-config-ts/json@1.0.4...@app-config-ts/json@1.0.5) (2022-10-06)
+
+
+### Bug Fixes
+
+* releases fix ([d5d5fe5](https://github.com/jbw/app-config-ts/commit/d5d5fe560b143c917e9216a7a8718e49eaf1250e))
+
+
+
+
+
+### Dependencies
+
+* **@app-config-ts/core:** upgraded to 1.0.6
+
 ## @app-config-ts/json [1.0.4](https://github.com/jbw/app-config-ts/compare/@app-config-ts/json@1.0.3...@app-config-ts/json@1.0.4) (2022-10-05)
 
 
