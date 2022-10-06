@@ -5,8 +5,7 @@ import { IConfigurationRoot } from '../packages/core/configuration-root.interfac
 import { ConfigurationRoot } from '../packages/core/configuration-root';
 
 function buildConfigurationProvider(path: string): IConfigurationProvider {
-  const source = new JsonConfigurationSource();
-  source.path = path;
+  const source = new JsonConfigurationSource(path);
 
   const builder = new ConfigurationBuilder();
   builder.add(source);
@@ -16,11 +15,47 @@ function buildConfigurationProvider(path: string): IConfigurationProvider {
   return provider;
 }
 
+describe('configuration loading', () => {
+  it('should load configuration using base path', () => {
+    const config = new ConfigurationBuilder()
+      .setBasePath(__dirname + '/examples/configuration-loading/')
+      .add(new JsonConfigurationSource('base-configuration.json'))
+      .build();
+
+    expect(config.get('logging.level')).toBe('debug');
+  });
+
+  it('should load configuration with base path as __dirname', () => {
+    const config = new ConfigurationBuilder()
+      .setBasePath(__dirname)
+      .add(new JsonConfigurationSource('/examples/configuration-loading/base-configuration.json'))
+      .build();
+
+    expect(config.get('logging.level')).toBe('debug');
+  });
+
+  it('should load configuration with base path as default', () => {
+    const config = new ConfigurationBuilder()
+      .setBasePath('./')
+      .add(new JsonConfigurationSource('test/examples/configuration-loading/base-configuration.json'))
+      .build();
+    expect(config.get('logging.level')).toBe('debug');
+  });
+
+  it('should load configuration with base path not set', () => {
+    const config = new ConfigurationBuilder()
+
+      .add(new JsonConfigurationSource('test/examples/configuration-loading/base-configuration.json'))
+      .build();
+
+    expect(config.get('logging.level')).toBe('debug');
+  });
+});
+
 describe('configuration-root', () => {
   it('should load configuration from json file', () => {
     // given
-    const source = new JsonConfigurationSource();
-    source.path = './test/examples/basic/basic-configuration-2.json';
+    const source = new JsonConfigurationSource('./test/examples/basic/basic-configuration-2.json');
 
     const builder = new ConfigurationBuilder();
     builder.add(source);
@@ -36,8 +71,7 @@ describe('configuration-root', () => {
 
   it('get values from array', () => {
     // given
-    const source = new JsonConfigurationSource();
-    source.path = './test/examples/array/basic-configuration-array.json';
+    const source = new JsonConfigurationSource('./test/examples/array/basic-configuration-array.json');
 
     const builder = new ConfigurationBuilder();
     builder.add(source);
@@ -53,8 +87,7 @@ describe('configuration-root', () => {
 
   it('should get section', () => {
     // given
-    const source = new JsonConfigurationSource();
-    source.path = './test/examples/basic/basic-configuration-1.json';
+    const source = new JsonConfigurationSource('./test/examples/basic/basic-configuration-1.json');
 
     const builder = new ConfigurationBuilder();
     builder.add(source);
@@ -70,8 +103,7 @@ describe('configuration-root', () => {
 
 it('should get top level section', () => {
   // given
-  const source = new JsonConfigurationSource();
-  source.path = './test/examples/basic/basic-configuration-1.json';
+  const source = new JsonConfigurationSource('./test/examples/basic/basic-configuration-1.json');
 
   const builder = new ConfigurationBuilder();
   builder.add(source);
@@ -86,8 +118,7 @@ it('should get top level section', () => {
 
 it('should get value from nested config', () => {
   // given
-  const source = new JsonConfigurationSource();
-  source.path = './test/examples/basic/basic-configuration-1.json';
+  const source = new JsonConfigurationSource('./test/examples/basic/basic-configuration-1.json');
 
   const builder = new ConfigurationBuilder();
   builder.add(source);
@@ -102,8 +133,7 @@ it('should get value from nested config', () => {
 
 it('should get nested value from config using a type', () => {
   // given
-  const source = new JsonConfigurationSource();
-  source.path = './test/examples/nested/heroes.json';
+  const source = new JsonConfigurationSource('./test/examples/nested/heroes.json');
 
   const builder = new ConfigurationBuilder();
   builder.add(source);
@@ -120,8 +150,7 @@ it('should get nested value from config using a type', () => {
 
 it('should get nested value from config using a type', () => {
   // given
-  const source = new JsonConfigurationSource();
-  source.path = './test/examples/nested/heroes.json';
+  const source = new JsonConfigurationSource('./test/examples/nested/heroes.json');
 
   const builder = new ConfigurationBuilder();
   builder.add(source);
@@ -136,8 +165,7 @@ it('should get nested value from config using a type', () => {
 
 it('should get value from config using a type', () => {
   // given
-  const source = new JsonConfigurationSource();
-  source.path = './test/examples/basic/basic-configuration-1.json';
+  const source = new JsonConfigurationSource('./test/examples/basic/basic-configuration-1.json');
 
   const builder = new ConfigurationBuilder();
   builder.add(source);
@@ -152,8 +180,7 @@ it('should get value from config using a type', () => {
 
 it('should handle basic types', () => {
   // given
-  const source = new JsonConfigurationSource();
-  source.path = './test/examples/basic/basic-types.json';
+  const source = new JsonConfigurationSource('./test/examples/basic/basic-types.json');
 
   const builder = new ConfigurationBuilder();
   builder.add(source);

@@ -23,6 +23,10 @@ export class ConfigurationBuilder implements IConfigurationBuilder {
     return this;
   }
 
+  public getBasePath(): string {
+    return this.basePath;
+  }
+
   /**
    * Extension method to add EnvironmentVariablesConfigurationSource
    */
