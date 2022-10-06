@@ -1,6 +1,6 @@
 {
   "name": "@app-config-ts/json",
-  "version": "1.0.5",
+  "version": "1.0.6-alpha.1",
   "description": "JSON extension for @app-config-ts",
   "homepage": "https://github.com/jbw/app-config-ts",
   "author": "Jason Watson <hi@jbw.codes>",
@@ -23,10 +23,10 @@
   },
   "main": "dist/index.js",
   "devDependencies": {
-    "@app-config-ts/core": "1.0.6"
+    "@app-config-ts/core": "1.0.7-alpha.1"
   },
   "peerDependencies": {
-    "@app-config-ts/core": "1.0.6"
+    "@app-config-ts/core": "1.0.7-alpha.1"
   },
   "files": [
     "dist/**",
