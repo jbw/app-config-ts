@@ -1,8 +1,8 @@
 import { IConfigurationBuilder } from './configuration-builder.interface';
-import { IConfigurationSource } from './configuration-source.interface';
-import { IConfigurationRoot } from './configuration-root.interface';
 import { IConfigurationProvider } from './configuration-provider.interface';
 import { ConfigurationRoot } from './configuration-root';
+import { IConfigurationRoot } from './configuration-root.interface';
+import { IConfigurationSource } from './configuration-source.interface';
 import { EnvironmentVariablesConfigurationSource } from './environment-variables-configuration-source';
 
 export class ConfigurationBuilder implements IConfigurationBuilder {
@@ -40,6 +40,7 @@ export class ConfigurationBuilder implements IConfigurationBuilder {
 
     this.sources.forEach((source) => {
       const provider: IConfigurationProvider = source.build(this);
+
       providers.push(provider);
     });
 

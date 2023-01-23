@@ -1,5 +1,5 @@
-import { IConfigurationProvider } from './configuration-provider.interface';
 import { IConfigurationBuilder } from './configuration-builder.interface';
+import { IConfigurationProvider } from './configuration-provider.interface';
 
 /**
  * @description This is the interface for the configuration of the application.

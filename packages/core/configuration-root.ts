@@ -1,8 +1,8 @@
-import { IConfigurationRoot } from './configuration-root.interface';
-import { IConfigurationProvider } from './configuration-provider.interface';
-import { IConfigurationSection } from './configuration-section.interface';
-import { ConfigurationSection } from './configuration-section';
 import { ConfigurationPath } from './configuration-path';
+import { IConfigurationProvider } from './configuration-provider.interface';
+import { IConfigurationRoot } from './configuration-root.interface';
+import { ConfigurationSection } from './configuration-section';
+import { IConfigurationSection } from './configuration-section.interface';
 
 export class ConfigurationRoot implements IConfigurationRoot {
   public providers: IConfigurationProvider[] = [];
@@ -16,10 +16,10 @@ export class ConfigurationRoot implements IConfigurationRoot {
   }
 
   get(key: string): string | null {
-    for (let i = 0; i < this.providers.length; i++) {
+    for (const provider of this.providers) {
       console.debug('ConfigurationRoot.get', key);
 
-      const value = this.providers[i].get(key);
+      const value = provider.get(key);
       if (value != null) {
         return value;
       }

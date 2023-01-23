@@ -1,5 +1,6 @@
 import { ConfigurationBuilder } from '@app-config-ts/core/configuration-builder';
 import { JsonConfigurationSource } from '@app-config-ts/json';
+
 import HeroesConfig from './heroes.config';
 
 const root = new ConfigurationBuilder()

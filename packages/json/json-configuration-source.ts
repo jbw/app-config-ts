@@ -1,8 +1,9 @@
-import { IConfigurationProvider } from '../core/configuration-provider.interface';
-import { IConfigurationBuilder } from '../core/configuration-builder.interface';
-import { JsonConfigurationProvider } from './json-configuration-provider';
-import { FileConfigurationSource } from '../core/file-configuration-source';
 import path from 'path';
+
+import { IConfigurationBuilder } from '../core/configuration-builder.interface';
+import { IConfigurationProvider } from '../core/configuration-provider.interface';
+import { FileConfigurationSource } from '../core/file-configuration-source';
+import { JsonConfigurationProvider } from './json-configuration-provider';
 
 export class JsonConfigurationSource extends FileConfigurationSource {
   constructor(path: string) {

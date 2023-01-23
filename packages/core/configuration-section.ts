@@ -1,6 +1,6 @@
+import { ConfigurationPath } from './configuration-path';
 import { IConfigurationRoot } from './configuration-root.interface';
 import { IConfigurationSection } from './configuration-section.interface';
-import { ConfigurationPath } from './configuration-path';
 
 export class ConfigurationSection implements IConfigurationSection {
   key: string;
@@ -23,7 +23,5 @@ export class ConfigurationSection implements IConfigurationSection {
     return this.root.getSection(ConfigurationPath.combine(this.path, section));
   }
 
-  public getChildren(key: string): IConfigurationSection[] {
-    return this.root.getChildren(key);
-  }
+  public getChildren = (key: string) => this.root.getChildren(key);
 }

@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 
+import { ConfigurationPath } from '../core/configuration-path';
 import { FileConfigurationProvider } from '../core/file-configuration-provider';
 import { JsonConfigurationSource } from './json-configuration-source';
-import { ConfigurationPath } from '../core/configuration-path';
 
 export class JsonConfigurationProvider extends FileConfigurationProvider {
   constructor(source: JsonConfigurationSource) {
